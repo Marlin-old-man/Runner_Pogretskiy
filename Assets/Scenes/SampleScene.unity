@@ -741,6 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockSize: 3
+  blockSize2: 2
   smoothing: 5
 --- !u!1001 &1872724461
 PrefabInstance:

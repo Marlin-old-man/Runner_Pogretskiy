@@ -6,9 +6,10 @@ public class Controls : MonoBehaviour
     private Vector2Int localPos = Vector2Int.zero;
 
     public float blockSize = 3f;
+    public float blockSize2 = 2f;
     public float smoothing = 5f;
     private static Controls Instance { get; set; }
-    private Vector3 TargetPosition => new(transform.position.x, localPos.y * blockSize, -localPos.x * blockSize);
+    private Vector3 TargetPosition => new(transform.position.x, localPos.y * blockSize2, -localPos.x * blockSize);
 
     private void Awake()
     {
