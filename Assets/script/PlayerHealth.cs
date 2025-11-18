@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Player Stats")]
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float immunityDuration = 5f;
+    [SerializeField] private TextMeshPro coinsText;
 
     [Header("Visual Feedback")]
     [SerializeField] private Renderer playerRenderer;
@@ -16,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private bool isImmune;
     private Color originalColor;
     private Coroutine immunityRoutine;
+    private float coins;
 
     void Start()
     {
@@ -40,6 +43,16 @@ public class PlayerHealth : MonoBehaviour
             {
                 enemyReaction.ReactToHit(Vector3.right, 1);
             }
+        }
+        if(other.CompareTag("Coin"))
+        {
+
+            coins++;
+
+            if (coinsText  != null)
+                coinsText.text = $"Coins: {Mathf.FloorToInt(coins)}";
+            Destroy(other.gameObject);
+
         }
        
     }
